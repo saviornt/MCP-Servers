@@ -32,13 +32,26 @@ A cross-platform Model Context Protocol (MCP) server that provides comprehensive
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all",  "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--privileged",
+        "--pid=host",
+        "--gpus",
+        "all",
+        "--network=host",
+        "--env", "HOST_OS=YOUR_OPERATING_SYSTEM_HERE",
+        "--env", "HOST_RELEASE=YOUR_OS_RELEASE_HERE",
+        "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"
+       ]
     }
   }
 }
 ```
 
 > **GPU Support**: Add `--gpus` `all` if you want the `get_gpu()` tool to detect NVIDIA/AMD GPUs on the host. This is required on Docker Desktop (including WSL2).
+> **Host Information**: The `HOST_OS` and `HOST_RELEASE` environment variables are optional but can improve accuracy of system information when running in a container. Set them to your host's operating system and release (e.g., `Windows 10`, `Ubuntu 22.04`, `macOS 13.4`).
 
 3. Save the configuration and start your MCP client. The `get-system-resources` server will now be available for use.
 4. Ask your tools-usage-capable assistant to find out how much free memory you have, or your system information, or any other system resource details!
@@ -171,7 +184,10 @@ To add this server to your MCP client's configuration, add the following entry t
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", 
+      "--gpus", "all", "--network=host", "--env", "HOST_OS=YOUR_OPERATING_SYSTEM_HERE",
+      "--env", "HOST_RELEASE=YOUR_OS_RELEASE_HERE",
+      "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
     }
   }
 }
@@ -184,13 +200,16 @@ Alternatively, you can use the Docker Hub image:
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all", "--network=host", "davidwadsworth80/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host",
+      "--gpus", "all", "--network=host", "--env", "HOST_OS=YOUR_OPERATING_SYSTEM_HERE",
+        "--env", "HOST_RELEASE=YOUR_OS_RELEASE_HERE","davidwadsworth80/get-system-resources:latest"]
     }
   }
 }
 ```
 
 > **GPU Support**: Add `--gpus all` if you want the `get_gpu()` tool to detect NVIDIA/AMD GPUs on the host. This is required on Docker Desktop (including WSL2).
+> **Host Information**: The `HOST_OS` and `HOST_RELEASE` environment variables are optional but can improve accuracy of system information when running in a container. Set them to your host's operating system and release (e.g., `Windows 10`, `Ubuntu 22.04`, `macOS 13.4`).
 
 ## Configuration
 

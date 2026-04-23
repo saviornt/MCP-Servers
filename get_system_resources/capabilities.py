@@ -23,6 +23,8 @@ def collect_capabilities() -> SystemCapabilitiesModel:
     return SystemCapabilitiesModel(
         platform=system,
         cpu=CPUCapabilitiesModel(
+            model_name=True,
+            architecture=True,
             per_core_usage=True,
             topology_detection=True,
             socket_detection=system in ["Windows", "Linux"],

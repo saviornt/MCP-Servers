@@ -2,6 +2,7 @@ from typing import Sequence
 import psutil
 import platform
 import subprocess
+from utils import get_host_os_family
 from models import (
     CPUCoreModel,
     CPUTopologyModel,
@@ -95,7 +96,8 @@ def unsupported_cache(unit: str) -> CacheInfo:
     )
 
 
-def build_topology(os_name: str) -> SystemTopologyModel:
+def build_topology() -> SystemTopologyModel:
+    os_name = get_host_os_family()
     return SystemTopologyModel(
         os=os_name,
         cpu=CPUTopologyModel(

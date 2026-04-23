@@ -1,6 +1,7 @@
 import shutil
 import platform
 import subprocess
+import os
 
 from models import ByteValueModel
 
@@ -9,9 +10,29 @@ def has_command(cmd: str) -> bool:
     return shutil.which(cmd) is not None
 
 
+def get_host_os() -> str:
+    """Return the real host OS name (Windows 11 Pro, Ubuntu 24.04, macOS, etc.)
+    Uses the HOST_OS environment variable set by entrypoint.sh / --env flags.
+    """
+    return os.getenv("HOST_OS") or platform.system()
+
+
+def get_host_os_family() -> str:
+    """Return normalized OS family for topology ('windows', 'darwin', 'linux')"""
+    host_os = os.getenv("HOST_OS", "").lower()
+    if "windows" in host_os:
+        return "windows"
+    if any(x in host_os for x in ["darwin", "macos", "mac"]):
+        return "darwin"
+    if "linux" in host_os:
+        return "linux"
+    # fallback
+    return platform.system().lower()
+
+
 def get_system_info():
     return {
-        "os": platform.system(),
+        "os": get_host_os(),
         "release": platform.release(),
         "machine": platform.machine(),
         "processor": platform.processor() or "Unknown",
@@ -66,3 +87,34 @@ def is_linux() -> bool:
 
 def is_macos() -> bool:
     return platform.system() == "Darwin"
+
+
+def get_cpu_model_name() -> str:
+    """Cross-platform CPU model name (Intel Core i9-9900K, Apple M3, etc.)"""
+    # Linux / WSL2
+    try:
+        with open("/proc/cpuinfo", encoding="utf-8") as f:
+            for line in f:
+                if line.startswith("model name"):
+                    return line.split(":", 1)[1].strip()
+    except Exception:
+        pass
+
+    # macOS
+    try:
+        return subprocess.check_output(
+            ["sysctl", "-n", "machdep.cpu.brand_string"], text=True, timeout=2
+        ).strip()
+    except Exception:
+        pass
+
+    # FreeBSD / other Unix
+    try:
+        return subprocess.check_output(
+            ["sysctl", "-n", "hw.model"], text=True, timeout=2
+        ).strip()
+    except Exception:
+        pass
+
+    # Final fallback
+    return platform.processor() or "Unknown CPU"

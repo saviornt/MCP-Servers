@@ -3,6 +3,7 @@ import time
 import subprocess
 from typing import List
 from models import CPUModel, CPUCoreModel, SystemTopologyModel
+from utils import get_cpu_model_name
 from .shared import build_per_core, build_topology, unsupported_cache
 
 _boot = psutil.boot_time()
@@ -36,9 +37,10 @@ def collect_cpu_windows() -> CPUModel:
     except Exception:
         pass
 
-    graph: SystemTopologyModel = build_topology("windows")
+    graph: SystemTopologyModel = build_topology()
 
     return CPUModel(
+        model_name=get_cpu_model_name(),
         utilization_percent=psutil.cpu_percent(interval=0.3),
         base_speed_ghz=freq.current / 1000 if freq else None,
         logical_cores=psutil.cpu_count(logical=True) or 0,

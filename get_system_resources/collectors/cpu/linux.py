@@ -2,6 +2,7 @@ import psutil
 import time
 from typing import List
 from models import CPUCoreModel, CPUModel, SystemTopologyModel
+from utils import get_cpu_model_name
 from .shared import build_per_core, build_topology, unsupported_cache
 
 
@@ -13,9 +14,10 @@ def collect_cpu_linux() -> CPUModel:
     freq = psutil.cpu_freq()
 
     per_core: List[CPUCoreModel] = build_per_core(per_core_usage, freq)
-    graph: SystemTopologyModel = build_topology("linux")
+    graph: SystemTopologyModel = build_topology()
 
     return CPUModel(
+        model_name=get_cpu_model_name(),
         utilization_percent=psutil.cpu_percent(interval=0.3),
         base_speed_ghz=freq.current / 1000 if freq else None,
         logical_cores=psutil.cpu_count(logical=True) or 0,

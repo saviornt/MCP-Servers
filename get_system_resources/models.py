@@ -44,6 +44,7 @@ class CacheInfo(BaseModel):
 
 
 class CPUModel(BaseModel):
+    model_name: str = "Unknown"
     utilization_percent: float
     base_speed_ghz: Optional[float]
     logical_cores: int
@@ -177,6 +178,8 @@ class SystemResourcesModel(BaseModel):
 
 # ================= System Capabilities =================
 class CPUCapabilitiesModel(BaseModel):
+    model_name: bool
+    architecture: bool
     per_core_usage: bool
     topology_detection: bool
     socket_detection: bool

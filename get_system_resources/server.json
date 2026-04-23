@@ -3,7 +3,7 @@
   
   "name": "io.github.saviornt/MCP-Servers/get-system-resources",
   "description": "An MCP server that provides [describe what your server does]",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "status": "active",
   "repository": {
     "url": "https://github.com/saviornt/MCP-Servers/get_system_resources",
@@ -15,7 +15,7 @@
   
   "name": "io.github.davidwadsworth80/get-system-resources",
   "description": "An MCP server that provides system resource information such as CPU, memory, disk usage, and network statistics.",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "status": "active",
   "repository": {
     "url": "https://hub.docker.com/repository/docker/davidwadsworth80/get-system-resources",
