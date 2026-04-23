@@ -1,19 +1,14 @@
 __version__ = "1.0.0"
-import sys
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT))
-
-from fastmcp import FastMCP  # noqa: E402
-from collectors.cpu.dispatcher import collect_cpu  # noqa: E402
-from collectors.memory_collector import collect_memory  # noqa: E402
-from collectors.disk_collector import collect_disk  # noqa: E402
-from collectors.network_collector import collect_network  # noqa: E402
-from collectors.system_collector import collect_system  # noqa: E402
-from collectors.gpu_collector import collect_gpu  # noqa: E402
-from capabilities import collect_capabilities  # noqa: E402
-from models import SystemResourcesModel  # noqa: E402
+from fastmcp import FastMCP
+from get_system_resources.collectors.cpu.dispatcher import collect_cpu
+from get_system_resources.collectors.memory_collector import collect_memory
+from get_system_resources.collectors.disk_collector import collect_disk
+from get_system_resources.collectors.network_collector import collect_network
+from get_system_resources.collectors.system_collector import collect_system
+from get_system_resources.collectors.gpu_collector import collect_gpu
+from get_system_resources.capabilities import collect_capabilities
+from get_system_resources.models import SystemResourcesModel
 
 
 mcp = FastMCP(

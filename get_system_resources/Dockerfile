@@ -27,4 +27,4 @@ COPY . .
 RUN pip install -e .
 
 # The MCP server runs via stdio by default
-CMD ["python", "-m", "get_system_resources.server"]
+CMD ["python", "server.py"]

@@ -1,7 +1,7 @@
 import psutil
 import time
 from typing import List
-from models import CPUCoreModel, CPUModel, SystemTopologyModel
+from get_system_resources.models import CPUCoreModel, CPUModel, SystemTopologyModel
 from .shared import build_per_core, build_topology, unsupported_cache
 
 

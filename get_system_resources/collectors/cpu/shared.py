@@ -2,7 +2,12 @@ from typing import Sequence
 import psutil
 import platform
 import subprocess
-from models import CPUCoreModel, CPUTopologyModel, SystemTopologyModel, CacheInfo
+from get_system_resources.models import (
+    CPUCoreModel,
+    CPUTopologyModel,
+    SystemTopologyModel,
+    CacheInfo,
+)
 
 
 def build_per_core(utilization: Sequence[float], freq=None):
