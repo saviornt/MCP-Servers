@@ -38,6 +38,8 @@ A cross-platform Model Context Protocol (MCP) server that provides comprehensive
 }
 ```
 
+> **GPU Support**: Add `--gpus` `all` if you want the `get_gpu()` tool to detect NVIDIA/AMD GPUs on the host. This is required on Docker Desktop (including WSL2).
+
 3. Save the configuration and start your MCP client. The `get-system-resources` server will now be available for use.
 4. Ask your tools-usage-capable assistant to find out how much free memory you have, or your system information, or any other system resource details!
 
@@ -187,6 +189,8 @@ Alternatively, you can use the Docker Hub image:
   }
 }
 ```
+
+> **GPU Support**: Add `--gpus all` if you want the `get_gpu()` tool to detect NVIDIA/AMD GPUs on the host. This is required on Docker Desktop (including WSL2).
 
 ## Configuration
 
