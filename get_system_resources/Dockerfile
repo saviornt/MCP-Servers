@@ -20,8 +20,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the MCP server script
-COPY server.py .
+# Copy the entire MCP server source
+COPY . .
+
+# Install the package in editable mode
+RUN pip install -e .
 
 # The MCP server runs via stdio by default
-CMD ["python", "server.py"]
+CMD ["python", "-m", "get_system_resources.server"]

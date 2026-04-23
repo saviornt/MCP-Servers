@@ -141,6 +141,34 @@ This server is designed to work with MCP-compatible clients such as:
 
 Configure your MCP client to connect to this server for system monitoring capabilities.
 
+### MCP Configuration
+
+To add this server to your MCP client's configuration, add the following entry to your `mcp.json` file:
+
+```json
+{
+  "mcpServers": {
+    "get-system-resources": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
+    }
+  }
+}
+```
+
+Alternatively, you can use the Docker Hub image:
+
+```json
+{
+  "mcpServers": {
+    "get-system-resources": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "davidwadsworth80/get-system-resources:latest"]
+    }
+  }
+}
+```
+
 ## Configuration
 
 The server automatically detects available system resources and adapts its behavior based on the platform:
