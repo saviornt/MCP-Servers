@@ -7,6 +7,11 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
+LABEL io.modelcontextprotocol.server.name="io.github.davidwadsworth80/get-system-resources" \
+      io.modelcontextprotocol.server.description="An MCP server that provides system resource information such as CPU, memory, disk usage, and network statistics." \
+      io.modelcontextprotocol.server.version="1.0.0" \
+      io.modelcontextprotocol.server.repository.url="https://github.com/davidwadsworth80/get-system-resources"
+
 # Install system dependencies (very minimal for this MCP tool)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
