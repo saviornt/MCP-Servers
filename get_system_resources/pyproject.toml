@@ -15,6 +15,8 @@ dependencies = [
     "pyrsmi",
 ]
 
+optional-dependencies = { dev = ["pytest>=8.0", "pytest-asyncio>=0.23.0"] }
+
 [tool.setuptools]
 py-modules = [
     "server",
@@ -25,14 +27,6 @@ py-modules = [
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["collectors*"]
-
-optional-dependencies = { dev = ["pytest>=8.0", "pytest-asyncio>=0.23.0"] }
-
-[tool.developer]
-dev-dependencies = [
-    "pytest",
-    "pytest-asyncio"
-]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
