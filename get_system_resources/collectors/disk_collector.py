@@ -1,6 +1,6 @@
 import psutil
-from ..models import DiskModel
-from ..utils import gb
+from models import DiskModel
+from utils import gb
 
 
 def collect_disk() -> list[DiskModel]:

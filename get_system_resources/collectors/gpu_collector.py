@@ -1,8 +1,8 @@
 import platform
 from typing import List
 
-from ..models import GPUDeviceModel, GPUModel
-from ..utils import human_readable_size
+from models import GPUDeviceModel, GPUModel
+from utils import human_readable_size
 
 
 def _to_int_bytes(value) -> int:

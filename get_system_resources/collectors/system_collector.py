@@ -1,5 +1,5 @@
 import platform
-from ..models import SystemModel
+from models import SystemModel
 
 
 def collect_system() -> SystemModel:

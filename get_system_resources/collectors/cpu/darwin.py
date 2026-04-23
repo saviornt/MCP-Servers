@@ -2,7 +2,7 @@ import psutil
 import subprocess
 import time
 from typing import List
-from ...models import CPUModel, CPUCoreModel, SystemTopologyModel
+from models import CPUModel, CPUCoreModel, SystemTopologyModel
 from .shared import build_per_core, build_topology, unsupported_cache
 
 

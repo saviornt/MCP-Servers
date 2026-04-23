@@ -2,7 +2,7 @@ from typing import Sequence
 import psutil
 import platform
 import subprocess
-from ...models import (
+from models import (
     CPUCoreModel,
     CPUTopologyModel,
     SystemTopologyModel,

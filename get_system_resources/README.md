@@ -22,6 +22,25 @@ A cross-platform Model Context Protocol (MCP) server that provides comprehensive
 
 - Python 3.10 or higher
 
+### Quick Start with MCP
+
+1. Open your MCP client's configuration file (e.g., `mcp.json`)
+2. Add the following entry to register the `get-system-resources` server:
+
+```json
+{
+  "mcpServers": {
+    "get-system-resources": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
+    }
+  }
+}
+```
+
+3. Save the configuration and start your MCP client. The `get-system-resources` server will now be available for use.
+4. Ask your tools-usage-capable assistant to find out how much free memory you have, or your system information, or any other system resource details!
+
 ### Install from Source
 
 1. Clone or download the repository

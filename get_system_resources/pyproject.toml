@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "get-system-resources"
-version = "1.0.2"
+version = "1.0.3"
 requires-python = ">=3.10"
 
 dependencies = [
@@ -21,7 +21,8 @@ optional-dependencies = { dev = ["pytest>=8.0", "pytest-asyncio>=0.23.0"] }
 py-modules = [
     "server",
     "models",
-    "utils"
+    "utils",
+    "capabilities",
 ]
 
 [tool.setuptools.packages.find]
