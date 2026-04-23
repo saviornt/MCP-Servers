@@ -2,7 +2,7 @@ import shutil
 import platform
 import subprocess
 
-from get_system_resources.models import ByteValueModel
+from .models import ByteValueModel
 
 
 def has_command(cmd: str) -> bool:

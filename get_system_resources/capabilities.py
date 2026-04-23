@@ -2,7 +2,7 @@ import platform
 import shutil
 import psutil
 
-from get_system_resources.models import (
+from .models import (
     SystemCapabilitiesModel,
     CPUCapabilitiesModel,
     MemoryCapabilitiesModel,

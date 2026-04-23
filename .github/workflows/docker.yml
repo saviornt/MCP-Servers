@@ -11,6 +11,7 @@ on:
             - "pyproject.toml"
             - "server.py"
             - ".github/workflows/docker.yml"
+    workflow_dispatch:
 
     release:
         types: [ published ]

@@ -1,6 +1,6 @@
 import psutil
-from get_system_resources.models import MemoryModel
-from get_system_resources.utils import gb
+from ..models import MemoryModel
+from ..utils import gb
 
 
 def collect_memory() -> MemoryModel:

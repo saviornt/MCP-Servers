@@ -3,13 +3,13 @@ import platform
 import socket
 import subprocess
 import re
-from get_system_resources.models import (
+from ..models import (
     NetworkModel,
     NetworkInterfaceModel,
     LatencyModel,
 )
 
-from get_system_resources.utils import human_readable_size
+from ..utils import human_readable_size
 
 
 def _ping_google() -> LatencyModel:

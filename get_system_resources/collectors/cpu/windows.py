@@ -2,7 +2,7 @@ import psutil
 import time
 import subprocess
 from typing import List
-from get_system_resources.models import CPUModel, CPUCoreModel, SystemTopologyModel
+from ...models import CPUModel, CPUCoreModel, SystemTopologyModel
 from .shared import build_per_core, build_topology, unsupported_cache
 
 _boot = psutil.boot_time()

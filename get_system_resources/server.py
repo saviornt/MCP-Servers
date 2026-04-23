@@ -1,14 +1,14 @@
 __version__ = "1.0.0"
 
 from fastmcp import FastMCP
-from get_system_resources.collectors.cpu.dispatcher import collect_cpu
-from get_system_resources.collectors.memory_collector import collect_memory
-from get_system_resources.collectors.disk_collector import collect_disk
-from get_system_resources.collectors.network_collector import collect_network
-from get_system_resources.collectors.system_collector import collect_system
-from get_system_resources.collectors.gpu_collector import collect_gpu
-from get_system_resources.capabilities import collect_capabilities
-from get_system_resources.models import SystemResourcesModel
+from collectors.cpu.dispatcher import collect_cpu
+from collectors.memory_collector import collect_memory
+from collectors.disk_collector import collect_disk
+from collectors.network_collector import collect_network
+from collectors.system_collector import collect_system
+from collectors.gpu_collector import collect_gpu
+from capabilities import collect_capabilities
+from models import SystemResourcesModel
 
 
 mcp = FastMCP(
