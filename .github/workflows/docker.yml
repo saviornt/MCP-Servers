@@ -2,7 +2,9 @@ name: Build and Push Docker Image
 
 on:
     push:
-        branches: [ "main" ]
+        branches:
+            - main
+            - master
         paths:
             - "Dockerfile"
             - "requirements.txt"
