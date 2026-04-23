@@ -30,7 +30,7 @@ A cross-platform Model Context Protocol (MCP) server that provides comprehensive
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "davidwadsworth80/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all", "--network=host", "davidwadsworth80/get-system-resources:latest"]
     }
   }
 }
@@ -53,11 +53,12 @@ To run the MCP server in a container with access to host system resources:
 docker run --rm -it \
   --privileged \
   --pid=host \
+  --gpus all \
   --network=host \
   ghcr.io/saviornt/mcp-servers/get-system-resources:latest
 ```
 
-**Note**: The `--privileged`, `--pid=host`, and `--network=host` flags are required for the container to access system resources like CPU, memory, disk, and network information.
+**Note**: The `--privileged`, `--pid=host`, `--gpus`, `all`, and `--network=host` flags are required for the container to access system resources like CPU, memory, disk, and network information.
 
 ## Usage
 
@@ -84,7 +85,7 @@ To add this server to your MCP client's configuration, add the following entry t
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
     }
   }
 }
@@ -97,7 +98,7 @@ Alternatively, you can use the Docker Hub image:
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "davidwadsworth80/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host","--gpus", "all",  "--network=host", "davidwadsworth80/get-system-resources:latest"]
     }
   }
 }

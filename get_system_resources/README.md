@@ -32,7 +32,7 @@ A cross-platform Model Context Protocol (MCP) server that provides comprehensive
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all",  "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
     }
   }
 }
@@ -169,7 +169,7 @@ To add this server to your MCP client's configuration, add the following entry t
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all", "--network=host", "ghcr.io/saviornt/mcp-servers/get-system-resources:latest"]
     }
   }
 }
@@ -182,7 +182,7 @@ Alternatively, you can use the Docker Hub image:
   "mcpServers": {
     "get-system-resources": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--network=host", "davidwadsworth80/get-system-resources:latest"]
+      "args": ["run", "--rm", "-i", "--privileged", "--pid=host", "--gpus", "all", "--network=host", "davidwadsworth80/get-system-resources:latest"]
     }
   }
 }
