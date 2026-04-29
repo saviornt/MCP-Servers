@@ -1,0 +1,13 @@
+[
+  {
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+    "name": "io.github.saviornt/cargo-server",
+    "description": "An MCP server that provides tools for Cargo (Rust package manager) to create, build, test, and manage Rust projects.",
+    "version": "1.0.0",
+    "status": "active",
+    "repository": {
+      "url": "https://github.com/saviornt/MCP-Servers/cargo-server",
+      "source": "github"
+    }
+  }
+]

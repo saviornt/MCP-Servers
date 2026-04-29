@@ -1,4 +1,16 @@
-ALLOWED_CARGO_COMMANDS = {"build", "test", "check", "run", "clippy"}
+ALLOWED_CARGO_COMMANDS = {
+    "build",
+    "check",
+    "test",
+    "run",
+    "add",
+    "new",
+    "metadata",
+    "clippy",
+    "clean",
+    "update",
+    "remove",
+}
 
 
 def validate_cargo(cmd: str) -> bool:
