@@ -147,3 +147,6 @@ Thumbs.db
 # Secrets
 secrets.json
 config.json
+
+# Pytest
+tests/
