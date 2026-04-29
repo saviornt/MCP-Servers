@@ -1,6 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 import subprocess
-from policy.uv_policy import validate_uv
+from uv_policy import validate_uv
 
 mcp = FastMCP("uv")
 

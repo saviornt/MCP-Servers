@@ -1,6 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 import subprocess
-from policy.cargo_policy import validate_cargo
+from cargo_policy import validate_cargo
 
 mcp = FastMCP("cargo")
 

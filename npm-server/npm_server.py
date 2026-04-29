@@ -1,6 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 import subprocess
-from policy.npm_policy import validate_script
+from npm_policy import validate_script
 
 mcp = FastMCP("npm")
 
