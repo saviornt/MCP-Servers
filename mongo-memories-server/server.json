@@ -1,0 +1,13 @@
+[
+  {
+    "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+    "name": "io.github.saviornt/mongo-memories-server",
+    "description": "Safe, general MongoDB CRUD operations with strict policy (no destructive commands).",
+    "version": "1.0.0",
+    "status": "active",
+    "repository": {
+      "url": "https://github.com/saviornt/MCP-Servers/mongo-server",
+      "source": "github"
+    }
+  }
+]
