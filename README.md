@@ -18,14 +18,14 @@ A cross-platform MCP server for comprehensive system resource monitoring and dia
 **Installation:**
 
 ```bash
-cd get_system_resources
+cd get-system-resources
 pip install -e .
 ```
 
 **Usage:**
 
 ```bash
-python -m get_system_resources.server
+python -m get-system-resources.server
 ```
 
 ## Getting Started
@@ -66,7 +66,7 @@ Each server provides tools that can be invoked by MCP clients to perform specifi
 
 ```text
 MCP-Servers/
-├── get_system_resources/     # System resource monitoring server
+├── get-system-resources/     # System resource monitoring server
 │   ├── server.py
 │   ├── models.py
 │   ├── collectors/

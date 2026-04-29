@@ -84,13 +84,13 @@ A cross-platform Model Context Protocol (MCP) server that provides comprehensive
 Start the server using Python:
 
 ```bash
-python -m get_system_resources.server
+python -m get-system-resources.server
 ```
 
 Or directly:
 
 ```bash
-python get_system_resources/server.py
+python get-system-resources/server.py
 ```
 
 ### Available Tools
@@ -226,7 +226,7 @@ No additional configuration is required for basic operation.
 ### Project Structure
 
 ```text
-get_system_resources/
+get-system-resources/
 ├── server.py              # Main MCP server implementation
 ├── models.py              # Pydantic data models
 ├── utils.py               # Utility functions
