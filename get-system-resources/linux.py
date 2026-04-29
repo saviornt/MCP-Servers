@@ -3,7 +3,7 @@ import time
 from typing import List
 from models import CPUCoreModel, CPUModel, SystemTopologyModel
 from utils import get_cpu_model_name
-from .shared import build_per_core, build_topology, unsupported_cache
+from shared import build_per_core, build_topology, unsupported_cache
 
 
 _boot = psutil.boot_time()

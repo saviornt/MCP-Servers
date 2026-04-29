@@ -1,8 +1,8 @@
 import platform
 
-from .linux import collect_cpu_linux
-from .windows import collect_cpu_windows
-from .darwin import collect_cpu_darwin
+from linux import collect_cpu_linux
+from windows import collect_cpu_windows
+from darwin import collect_cpu_darwin
 
 
 def collect_cpu():

@@ -1,7 +1,7 @@
 __version__ = "1.0.0"
 
 from fastmcp import FastMCP
-from collectors.cargo_collector import (
+from cargo_collector import (
     get_cargo_version,
     cargo_metadata,
     execute_cargo_command,
@@ -13,7 +13,6 @@ from collectors.cargo_collector import (
     cargo_new,
 )
 from capabilities import collect_capabilities
-from models import CargoVersionModel, CargoMetadataModel, CommandResultModel
 
 
 mcp = FastMCP(

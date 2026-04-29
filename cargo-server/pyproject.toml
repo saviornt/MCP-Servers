@@ -23,10 +23,6 @@ py-modules = [
     "cargo_policy",
 ]
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["collectors*"]
-
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
