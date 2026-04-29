@@ -1,15 +1,16 @@
 # mongo-memories-server
 
-Dedicated long-term memory server for agents. Stores memories, tasks, journals, logs, and knowledge with built-in Auto-Embedding vector search (enabled by default).
+Dedicated long-term **cognitive memory system** for agents.  
+Stores knowledge (RAG), tasks, journal entries, and a rich, evolving **identity/personality profile** with Big Five traits, core values, goals, cognitive style, and self-reflection capabilities. Vector search (Auto-Embedding) is **always enabled**.
 
 ## Features
 
-- Isolated memory-only server (cannot touch general/production databases)
-- Dedicated collections: `memories`, `tasks`, `journals`, `logs`
-- Automatic vector indexing using MongoDB Auto-Embedding (Voyage AI models)
-- Semantic (vector) search support out of the box
-- Smart config detection: environment variables → workspace `.env` / `mongo.env` / `mongo.yaml` etc.
-- Fully async with structured Pydantic outputs
+- **Knowledge** – semantic RAG-style long-term memory with automatic vector indexing
+- **Tasks** – actionable planning and tracking
+- **Journal** – temporal reflections and logs
+- **Identity** – rich personality/profile with Big Five traits, values, goals, cognitive style, and self-reflection (meta-cognition)
+- Smart config detection: environment variables → workspace `.env` / `mongo.env` / YAML files
+- Fully async, structured Pydantic outputs
 - GHCR published
 
 ## Installation
@@ -38,7 +39,7 @@ Add to your client's `mcp.json`:
 }
 ```
 
-Replace `/path/to/your/project` with your actual workspace and update the URI as needed.
+Replace `/path/to/your/project` and the URI as needed.
 
 ### Install from Source
 
@@ -51,13 +52,10 @@ pip install -e .
 
 ## Tool Safety
 
-This server is **dedicated to agent long-term memory only**. It is intentionally isolated from general database operations (use the separate `mongo-server` for general CRUD).
+This server is **strictly isolated** to agent memory and identity operations only.  
+It cannot access general/production databases (use the separate `mongo-server` for that).
 
-**Allowed Collections:** `memories`, `tasks`, `journals`, `logs`
-
-**Vector Search:** Enabled by default (`MONGO_VECTOR_SEARCH=true`). You can disable it with an environment variable if desired.
-
-All operations are safe and restricted to memory-related actions.
+All tools are safe, policy-enforced, and designed for cognitive use.
 
 ## Usage
 
@@ -67,28 +65,33 @@ python -m server
 
 ## Available Tools
 
-All tools are prefixed with `memories_` for clear grouping in the MCP client UI:
+Tools are grouped by cognitive domain for clarity in the MCP client UI.
 
-### Memory Tools
+### Knowledge (RAG / Long-term Memory)
 
-- `memories_store_memory_tool(content: str, memory_type: str = "memory", metadata: dict | None = None)`
-- `memories_get_memory_tool(memory_id: str)`
-- `memories_search_memories_tool(query: str, limit: int = 20)`
-- `memories_delete_memory_tool(memory_id: str)`
+- `knowledge_add_tool(content: str, memory_type: str = "general", metadata: dict | None = None)`
+- `knowledge_get_tool(memory_id: str)`
+- `knowledge_search_tool(query: str, limit: int = 10)`
+- `knowledge_delete_tool(memory_id: str)`
+- `knowledge_reindex_tool(collection: str = "memories", path: str = "content", model: str = "voyage-4")`
 
-### Task Tools
+### Tasks (Actionable Planning)
 
-- `memories_store_task_tool(title: str, description: str, status: str = "pending")`
-- `memories_list_tasks_tool(status: str | None = None)`
+- `tasks_create_tool(title: str, description: str, status: str = "pending")`
+- `tasks_list_tool(status: str | None = None)`
+- `tasks_complete_tool(task_id: str)`
+- `tasks_delete_tool(task_id: str)`
 
-### Journal Tools
+### Journal (Reflections / Logs)
 
-- `memories_store_journal_entry_tool(entry: str)`
+- `journal_add_entry_tool(entry: str)`
+- `journal_list_entries_tool(limit: int = 50)`
 
-### Vector / Auto-Embedding Tools
+### Identity / Personality (Self-Concept)
 
-- `memories_ensure_auto_embed_index_tool(collection: str = "memories", path: str = "content", model: str = "voyage-4")`
-- `memories_semantic_search_tool(collection: str = "memories", query: str, limit: int = 10, path: str = "content")`
+- `identity_get_tool()` – Retrieve full personality profile
+- `identity_update_tool(profile_updates: dict)` – Update Big Five traits, values, goals, cognitive style, etc.
+- `identity_reflect_tool()` – Agent performs self-reflection and suggests improvements
 
 ### Utilities
 
@@ -97,12 +100,13 @@ All tools are prefixed with `memories_` for clear grouping in the MCP client UI:
 
 ## Configuration Options
 
-| Variable                | Description                              | Default                     |
-|-------------------------|------------------------------------------|-----------------------------|
-| `MONGO_URI`             | MongoDB connection string                | `mongodb://localhost:27017` |
-| `MONGO_DATABASE`        | Database name for memories               | `agent_memory`              |
-| `MONGO_AGENT_NAME`      | Auto-creates database `agent_<name>`     | (none)                      |
-| `MONGO_VECTOR_SEARCH`   | Enable Auto-Embedding vector search      | `true`                      |
+| Variable          | Description                              | Default                     |
+|-------------------|------------------------------------------|-----------------------------|
+| `MONGO_URI`       | MongoDB connection string                | `mongodb://localhost:27017` |
+| `MONGO_DATABASE`  | Database name for memories               | `agent_memory`              |
+| `MONGO_AGENT_NAME`| Auto-creates database `agent_<name>`     | (none)                      |
+
+Vector search (Auto-Embedding) is **always enabled** in this server.
 
 ## License
 
